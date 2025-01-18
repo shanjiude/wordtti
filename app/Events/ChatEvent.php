@@ -26,7 +26,6 @@ class ChatEvent implements ShouldBroadcast
     public function __construct($message = null)
     {
         $this->message = $message;
-        Log::info('MessageSentイベントが発火しました。', ['message' => $message]);
 
         $messages = new Message();
         $messages->message = $message;

@@ -67,3 +67,17 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 
 ./vendor/bin/sail
+./vendor/bin/sail artisan reverb:start
+./vendor/bin/sail artisan queue:work
+./vendor/bin/sail npm run dev
+./vendor/bin/sail artisan route:clear
+./vendor/bin/sail artisan cache:clear
+./vendor/bin/sail artisan config:clear
+
+
+やること
+ログイン機能
+ロリポップデプロイ
+削除ボタン
+ヘッダーフッター
+サクッとドキュメント→作成に至ったさわりの部分

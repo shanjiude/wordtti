@@ -12,3 +12,5 @@ Route::post('/', function (Request $request) {
     ChatEvent::dispatch($request->message);
     return response()->json(['message' => 'success!']);
 });
+
+Route::post('/delete-message', [ChatController::class, 'deleteMessage'])->name('messages.delete');
