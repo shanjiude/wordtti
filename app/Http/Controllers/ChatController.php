@@ -53,18 +53,4 @@ class ChatController extends Controller
             return response()->json(['success' => false, 'message' => '削除中にエラーが発生しました'], 500);
         }
     }
-
-    public function saveSecret(Request $request)
-    {
-        $secretText = $request->input('secretText');
-
-        // データベースに保存する場合
-        // Secret::updateOrCreate([], ['text' => $secretText]);
-
-        // ブロードキャストイベントで他のクライアントに通知
-        broadcast(new SecretUpdatedEvent($secretText));
-
-        return response()->json(['message' => '秘密の基準が保存されました']);
-    }
-
 }

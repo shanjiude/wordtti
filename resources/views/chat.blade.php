@@ -24,7 +24,7 @@
                 </form>
 
                 <!-- 編集/表示切替ボタン -->
-                <button id="toggle-secret" class="mt-2 bg-gray-500 text-white px-4 py-1 rounded hover:bg-red-600">秘密の基準を見る</button>
+                <button id="toggle-secret" class="mt-2 bg-gray-500 text-white px-4 py-1 rounded hover:bg-red-600">秘密の基準</button>
             </div>
 
 

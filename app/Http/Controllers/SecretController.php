@@ -32,7 +32,7 @@ class SecretController extends Controller
         }
 
         // イベントを発火して、秘密の基準の変更をリアルタイムで通知
-        broadcast(new SecretUpdatedEvent($request->secret_text));
+        SecretUpdatedEvent::dispatch($secret->text);
 
         return response()->json(['message' => '秘密の基準が更新されました']);
     }

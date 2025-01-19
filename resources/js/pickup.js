@@ -51,22 +51,3 @@ Echo.channel('channel-chat').listen('ClearPickUpEvent', () => {
     const pickedMessagesContainer = document.getElementById('picked-messages');
     pickedMessagesContainer.innerHTML = ''; // 固定エリアをクリア
 });
-
-document.getElementById('toggle-secret').addEventListener('click', () => {
-    const currentSecretDiv = document.getElementById('current-secret');
-    const secretForm = document.getElementById('secret-form');
-    const toggleButton = document.getElementById('toggle-secret');
-
-    if (currentSecretDiv.classList.contains('hidden')) {
-        // 現在の秘密の基準を表示
-        currentSecretDiv.classList.remove('hidden');
-        // フォームを隠す
-        secretForm.classList.add('hidden');
-        toggleButton.textContent = '編集'; // ボタンテキストを「編集」に変更
-    } else {
-        // 編集フォームを表示
-        currentSecretDiv.classList.add('hidden');
-        secretForm.classList.remove('hidden');
-        toggleButton.textContent = '秘密の基準を見る'; // ボタンテキストを「見る」に変更
-    }
-});
