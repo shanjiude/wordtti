@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Message;
+use App\Models\Secret;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Events\DeletedEvent;
@@ -14,8 +15,13 @@ class ChatController extends Controller
         // 最後の20件を取得
         $messages = Message::orderBy('created_at', 'desc')->take(20)->get();
 
+        // 秘密の基準を取得（最初のレコード）
+        $secret = Secret::first();
+        $secretText = $secret ? $secret->text : ''; // 秘密の基準があれば取得、なければ空文字
+
         $response = [
-            'messages' => $messages
+            'messages' => $messages,
+            'secretText' => $secretText,
         ];
 
         return view('chat', $response);
@@ -47,4 +53,18 @@ class ChatController extends Controller
             return response()->json(['success' => false, 'message' => '削除中にエラーが発生しました'], 500);
         }
     }
+
+    public function saveSecret(Request $request)
+    {
+        $secretText = $request->input('secretText');
+
+        // データベースに保存する場合
+        // Secret::updateOrCreate([], ['text' => $secretText]);
+
+        // ブロードキャストイベントで他のクライアントに通知
+        broadcast(new SecretUpdatedEvent($secretText));
+
+        return response()->json(['message' => '秘密の基準が保存されました']);
+    }
+
 }

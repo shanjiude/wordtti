@@ -14,7 +14,7 @@ document.getElementById('send-button').addEventListener('click', () => {
    * Listen for events on the channel-chat channel
    */
   Echo.channel('channel-chat').listen('ChatEvent', (e) => {
-    console.log("受信したイベント:", e);  // ここでeを確認
+    console.log(e);
     const ul = document.getElementById('message-list');
 
     const messageWrapper = document.createElement('div');
@@ -35,47 +35,10 @@ document.getElementById('send-button').addEventListener('click', () => {
     metaContainer.classList.add('flex', 'flex-col', 'items-start', 'text-sm', 'text-gray-500');
     metaContainer.innerHTML = `
         <div>${new Date().toLocaleString()}</div>
-        <button class="mt-1 bg-gray-500 text-white px-2 py-1 text-xs rounded hover:bg-red-600">削除</button>
+        <div class="flex space-x-2"><button class="pick-up-button mt-1 bg-blue-500 text-white px-2 py-1 text-xs rounded hover:bg-blue-700">Pick Up</button>
+        <button class="delete-button mt-1 bg-gray-500 text-white px-2 py-1 text-xs rounded hover:bg-red-600">削除</button></div>
     `;
 
     messageWrapper.appendChild(metaContainer);
     ul.prepend(messageWrapper);
 });
-
-document.getElementById('message-list').addEventListener('click', (event) => {
-    if (event.target.matches('.delete-button')) {
-        // 親要素から data-id を取得
-        const messageElement = event.target.closest('.message-wrapper');
-        const messageId = messageElement?.getAttribute('data-id');
-
-        if (messageId) {
-            // サーバーに削除リクエストを送信
-            axios.post('/delete-message', { id: messageId }) // ペイロードに含める
-                .then((response) => {
-                    console.log('サーバー応答:', response.data);
-                    if (response.data.success) {
-                        messageElement.remove();
-                    } else {
-                        alert('削除に失敗しました');
-                    }
-                })
-                .catch((error) => {
-                    console.error('削除リクエストエラー:', error);
-                    alert('サーバーエラーが発生しました');
-                });
-        } else {
-            console.error('メッセージIDが取得できません');
-        }
-    }
-});
-
-
-Echo.channel('channel-chat').listen('DeletedEvent', (e) => {
-        const messageId = e.messageId;
-
-        // 削除されたメッセージをDOMから削除
-        const messageElement = document.querySelector(`[data-id="${messageId}"]`);
-        if (messageElement) {
-            messageElement.remove();
-        }
-    });
