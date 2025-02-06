@@ -78,6 +78,5 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 やること
 ログイン機能
 ロリポップデプロイ
-削除ボタン
+名前を決めるボタン
 ヘッダーフッター
-サクッとドキュメント→作成に至ったさわりの部分

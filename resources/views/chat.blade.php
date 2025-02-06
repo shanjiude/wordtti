@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <title>簡易チャット</title>
+        <title>ワードッチ！</title>
         @vite(['resources/js/app.js','resources/css/app.css','resources/scss/chat.scss'])
     </head>
     <body>
@@ -36,7 +36,7 @@
                     </div>
 
                     <div>
-                        <input type="text" id="message" name="message" placeholder="メッセージを書く">
+                        <input type="text" id="message" name="message" placeholder="ワードを書く">
                         <button id="send-button">送信</button>
                     </div>
                     <ul id="message-list">
