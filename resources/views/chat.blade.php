@@ -36,21 +36,22 @@
                         </div>
                     </div>
 
-                    <div>
-                        <input type="text" id="message" name="message" placeholder="ワードを書く">
+                    <div class="word-input-container">
+                        <input class="word-in" type="text" id="message" name="message" placeholder="ワードを書く">
                         <button id="send-button">送信</button>
                     </div>
+
                     <ul id="message-list">
                         @foreach ($messages as $message)
                             <div class="message-wrapper flex items-start space-x-4 mb-3" data-id="{{ $message->id }}">
                                 <div class="w-96 bg-gray-100 p-2 rounded break-words">
                                     <li class="message whitespace-pre-wrap">{{ $message->message }}</li>
                                 </div>
-                                <div class="flex flex-col items-start text-sm text-gray-500">
+                                <div class="message-actions text-sm text-gray-500">
                                     <div>
                                         {{ $message->created_at->format('Y/m/d H:i') }}
                                     </div>
-                                    <div class="flex space-x-2">
+                                    <div class="other-buttons">
                                         <button class="pick-up-button mt-1 bg-blue-500 text-white px-2 py-1 text-xs rounded hover:bg-blue-700">
                                             Pick Up
                                         </button>
@@ -64,7 +65,7 @@
                     </ul>
                 </div>
             </div>
-            <div id="rules-section" class="w-1/4 bg-gray-100 p-4 rounded-lg shadow-lg ml-4">
+            <div id="rules-section" class="w-1/4 bg-gray-100 p-4 rounded-lg shadow-lg ml-4 hidden">
                 <h2 class="text-2xl font-bold text-center mb-4">ワードッチのルール</h2>
                 <p class="text-lg font-semibold mb-2">ワードッチは3人から6人程度のパーティーゲームです！</p>
                 <h3 class="text-xl font-bold mt-4">ルール</h3>
