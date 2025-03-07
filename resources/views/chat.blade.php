@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>ワードッチ！</title>
+        <link rel="icon" href="{{ asset('paint_capital_w.png') }}" type="image/png">
         @vite(['resources/js/app.js','resources/css/app.css','resources/scss/chat.scss'])
     </head>
     <body>
