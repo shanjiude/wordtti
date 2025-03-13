@@ -11,6 +11,7 @@ use App\Models\Message;
 
 
 Route::get('/', [ChatController::class, 'index']);
+Route::get('/rules', [ChatController::class, 'rules']);
 
 # ポスト用ルーティング
 Route::post('/', function (Request $request) {

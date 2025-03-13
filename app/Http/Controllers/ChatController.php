@@ -53,4 +53,9 @@ class ChatController extends Controller
             return response()->json(['success' => false, 'message' => '削除中にエラーが発生しました'], 500);
         }
     }
+
+    public function rules()
+    {
+        return view('rules');
+    }
 }

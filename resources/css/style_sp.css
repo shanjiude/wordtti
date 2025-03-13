@@ -3,19 +3,8 @@ body {
     width: 100%;
     overflow-x: hidden;
 }
-
-#rule-section {
-    display: none;
-}
-
 .flex {
-    flex-direction: column;
-}
-
-#rules-section {
-    width: 100%;
-    margin-left: 0;
-    margin-top: 20px;
+    display: flex;
 }
 
 .message-wrapper {
@@ -52,8 +41,9 @@ body {
 }
 
 #send-button {
-    width: 20%; /* ボタンの幅を調整 */
-    padding: 10px;
+    min-width: 80px; /* 最小幅を確保 */
+    width: auto; /* 自然な幅に */
+    padding: 10px 15px;
     font-size: 16px;
     background-color: #007bff;
     border: none;
