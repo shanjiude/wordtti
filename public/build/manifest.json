@@ -1,0 +1,18 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-CSs1fBOW.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-CxpEYydO.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/scss/chat.scss": {
+    "file": "assets/chat-DX7VpVTt.css",
+    "src": "resources/scss/chat.scss",
+    "isEntry": true
+  }
+}
