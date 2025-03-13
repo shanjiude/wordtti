@@ -8,5 +8,8 @@ export default defineConfig({
             refresh: true,
         }),
     ],
-    publicDir: 'public',
+    server: {
+        https: true, // ローカル環境でも HTTPS を有効にする
+    },
+    base: '/build/', // アセットの URL を明示的に設定
 });
