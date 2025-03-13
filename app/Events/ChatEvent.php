@@ -17,21 +17,24 @@ class ChatEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    ///この値をChat.jsで取得する
     public $message;
+    public $messageId;
 
     /**
      * Create a new event instance.
+     *
+     * @param string|null $message
+     * @param int|null $messageId
      */
-    public function __construct($message = null)
+    public function __construct($message = null, int $messageId)
     {
         $this->message = $message;
-        Log::info('MessageSentイベントが発火しました。', ['message' => $message]);
+        $this->messageId = $messageId;  // messageIdを設定
 
-        $messages = new Message();
-        $messages->message = $message;
-        $messages->save();
+        \Log::info('ChatEvent: ', ['message' => $message, 'messageId' => $messageId]);
+
     }
+
 
     /**
      * Get the channels the event should broadcast on.

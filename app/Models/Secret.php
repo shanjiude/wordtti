@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Message extends Model
+class Secret extends Model
 {
-    protected $fillable = ['message','id'];
+    protected $fillable = ['text'];
 }

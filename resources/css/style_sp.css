@@ -1,0 +1,59 @@
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+.flex {
+    display: flex;
+}
+
+.message-wrapper {
+    width: 320px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.message-wrapper .w-96 {
+    width: 100%;
+}
+
+.message-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.word-input-container {
+    display: flex;
+    align-items: center; /* 垂直方向の中央揃え */
+    width: 100%;
+    justify-content: center; /* 中央寄せ */
+    gap: 10px;
+}
+
+.word-in {
+    width: 70%; /* 入力欄の幅を調整 */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#send-button {
+    min-width: 80px; /* 最小幅を確保 */
+    width: auto; /* 自然な幅に */
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    white-space: nowrap; /* 文字が縦書きにならないように */
+    text-align: center;
+    margin-left: 10px; /* 入力欄との間隔 */
+}
+
+#send-button:hover {
+    background-color: #0056b3;
+}
