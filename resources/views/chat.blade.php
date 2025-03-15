@@ -40,13 +40,9 @@
                         <a href="{{ url('/rules') }}" class="rules-button">ルール説明</a>
                     </div>
 
-                    <div class="flex sm:flex-col items-center gap-2 w-full max-w-md mx-auto py-4">
-                        <input class="flex-grow p-2 border border-gray-300 rounded-md"
-                               type="text" id="message" name="message" placeholder="ワードを書く">
-                        <button id="send-button"
-                                class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-700">
-                            送信
-                        </button>
+                    <div class="word-container">
+                        <input type="text" id="message" name="message" placeholder="ワードを書く">
+                        <button id="send-button">送信</button>
                     </div>
 
 
