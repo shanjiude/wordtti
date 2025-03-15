@@ -1,10 +1,13 @@
+
 html,
 body {
     width: 100%;
+    max-width: 100vw;
     overflow-x: hidden;
 }
 .flex {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .message-wrapper {
@@ -13,7 +16,7 @@ body {
     align-items: flex-start;
 }
 
-.message-wrapper .w-96 {
+.message-wrapper {
     width: 100%;
 }
 
@@ -24,36 +27,17 @@ body {
     gap: 8px;
 }
 
-.word-input-container {
+.word-container {
     display: flex;
-    align-items: center; /* 垂直方向の中央揃え */
     width: 100%;
-    justify-content: center; /* 中央寄せ */
     gap: 10px;
 }
-
 .word-in {
-    width: 70%; /* 入力欄の幅を調整 */
-    padding: 10px;
-    font-size: 16px;
+    flex: 1; /* 入力欄をボタンのサイズに応じて調整 */
+    min-width: 150px; /* 最小幅を設定（小さくなりすぎないように） */
+    max-width: 250px; /* 最大幅を制限 */
+    padding: 8px;
+    font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 5px;
-}
-
-#send-button {
-    min-width: 80px; /* 最小幅を確保 */
-    width: auto; /* 自然な幅に */
-    padding: 10px 15px;
-    font-size: 16px;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    white-space: nowrap; /* 文字が縦書きにならないように */
-    text-align: center;
-    margin-left: 10px; /* 入力欄との間隔 */
-}
-
-#send-button:hover {
-    background-color: #0056b3;
 }

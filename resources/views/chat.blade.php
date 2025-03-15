@@ -6,12 +6,12 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>ワードッチ！</title>
         <link rel="icon" href="{{ asset('paint_capital_w.png') }}" type="image/png">
-        @vite(['resources/js/app.js','resources/css/app.css','resources/scss/chat.scss'])
+        @vite(['resources/js/app.js','resources/css/app.css'])
     </head>
     <body>
-        <div class="flex">
+        <div class="">
             <div class="flex-grow">
-                <div class="position: absolute top-20 left-10">
+                <div class="max-w-screen-md mx-auto p-4">
                     <div id="secret-area" class="mb-5 bg-green-100 p-4 rounded">
                         <!-- 現在の秘密の基準（表示用） -->
                         <div id="current-secret" class="mb-3 hidden">
@@ -40,10 +40,15 @@
                         <a href="{{ url('/rules') }}" class="rules-button">ルール説明</a>
                     </div>
 
-                    <div class="word-input-container">
-                        <input class="word-in" type="text" id="message" name="message" placeholder="ワードを書く">
-                        <button id="send-button">送信</button>
+                    <div class="flex sm:flex-col items-center gap-2 w-full max-w-md mx-auto py-4">
+                        <input class="flex-grow p-2 border border-gray-300 rounded-md"
+                               type="text" id="message" name="message" placeholder="ワードを書く">
+                        <button id="send-button"
+                                class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-700">
+                            送信
+                        </button>
                     </div>
+
 
                     <ul id="message-list">
                         @foreach ($messages as $message)
@@ -53,7 +58,7 @@
                                 </div>
                                 <div class="message-actions text-sm text-gray-500">
                                     <div>
-                                        {{ $message->created_at->format('Y/m/d H:i') }}
+                                        {{ $message->created_at->format('Y/m/d H:i:s') }}
                                     </div>
                                     <div class="other-buttons">
                                         <button class="pick-up-button mt-1 bg-blue-500 text-white px-2 py-1 text-xs rounded hover:bg-blue-700">
