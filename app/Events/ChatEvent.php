@@ -35,6 +35,17 @@ class ChatEvent implements ShouldBroadcast
 
     }
 
+    // public function broadcastOn()
+    // {
+    //     return new Channel('channel-chat');
+    // }
+
+    // public function broadcastWith()
+    // {
+    //     return ['message' => $this->message,
+    //             'messageId' => $this->messageId,];
+    // }
+
 
     /**
      * Get the channels the event should broadcast on.

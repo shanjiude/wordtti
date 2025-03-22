@@ -9,7 +9,7 @@ export default defineConfig({
         }),
     ],
     server: {
-        https: true, // ローカル環境でも HTTPS を有効にする
+        https: false,
     },
     base: '/build/', // アセットの URL を明示的に設定
 });
